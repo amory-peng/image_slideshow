@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './lib/entry.jsx',
+  entry: './frontend/entry.jsx',
   output: {
     filename: 'bundle.js',
   },
@@ -19,6 +19,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*'],
+    extensions: ['.mjs', '.js', '.jsx', '*'],
   },
 };

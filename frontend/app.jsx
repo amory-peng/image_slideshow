@@ -1,5 +1,4 @@
 import React from 'react';
-import fetchImages from './helpers';
 
 export default class App extends React.Component {
   constructor() {
@@ -9,7 +8,7 @@ export default class App extends React.Component {
   }
 
   handleClick() {
-    fetchImages('ballerina', 0).then(res => console.log(res));
+    console.log('hi mom');
   }
 
   render() {
