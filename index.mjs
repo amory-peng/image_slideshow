@@ -17,7 +17,7 @@ import path from 'path';
 import query from './backend/query';
 
 const app = express();
-const port = 3000;
+const port = 4462;
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 app.use(express.static(__dirname));
@@ -31,5 +31,5 @@ app.post('/search', async (req, res) => {
   res.send(body);
 });
 
-console.log('app started');
+console.log(`listening on ${port}`);
 app.listen(port);

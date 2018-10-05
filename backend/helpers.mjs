@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import auth from '../auth.json';
 
 // take response from custom search api and pull out the img urls and the page
@@ -8,7 +9,7 @@ const parseResponse = (response) => {
 };
 
 // google custom search api helper
-const fetchImages = (search, opts = { start = 0, safe = false }) => {
+const fetchImages = (search, { startIdx = 0, safe = false } = {}) => {
   let url = 'https://www.googleapis.com/customsearch/v1?searchType=image&';
   // add query
   url += `q=${search}&`;
@@ -17,10 +18,9 @@ const fetchImages = (search, opts = { start = 0, safe = false }) => {
   // add key
   url += `key=${auth.key}&`;
   // pagination
-  url += `start=${start}`;
+  url += `startIndex=${startIdx}&`;
   // safesearch
-  url += `safe=${safe ? 'on' : 'off'}`;
-
+  url += `safe=${safe ? 'active' : 'off'}`;
   return fetch(url)
     .then(res => res.json())
     .then(res => parseResponse(res));
