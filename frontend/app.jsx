@@ -1,22 +1,27 @@
 import React from 'react';
+import Slideshow from './slideshow';
+import SearchControls from './search_controls';
 
 export default class App extends React.Component {
   constructor() {
     super();
-    this.state = {};
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { images: [], nextIdx: null };
+    this.addImages = this.addImages.bind(this);
   }
 
-  handleClick() {
-    console.log('hi mom');
+  addImages(imgs) {
+    console.log(imgs);
+    this.setState(prevState => ({
+      images: prevState.images.concat(imgs),
+    }));
   }
 
   render() {
+    const { nextIdx, images } = this.state;
     return (
       <div>
-        <button type="button" onClick={this.handleClick}>
-          click me
-        </button>
+        <SearchControls nextIdx={nextIdx} addImages={this.addImages} />
+        <Slideshow images={images} />
       </div>
     );
   }

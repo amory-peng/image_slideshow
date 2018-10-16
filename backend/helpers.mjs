@@ -9,7 +9,7 @@ const parseResponse = (response) => {
 };
 
 // google custom search api helper
-const fetchImages = (search, { startIdx = 0, safe = false } = {}) => {
+const fetchImagesActual = (search, { startIdx = 0, safe = false } = {}) => {
   let url = 'https://www.googleapis.com/customsearch/v1?searchType=image&';
   // add query
   url += `q=${search}&`;
@@ -25,5 +25,12 @@ const fetchImages = (search, { startIdx = 0, safe = false } = {}) => {
     .then(res => res.json())
     .then(res => parseResponse(res));
 };
+
+const fetchImages = () => ({
+  imgs: [
+    'https://i.kym-cdn.com/entries/icons/facebook/000/021/033/Screenshot_236.jpg',
+  ],
+  nextIdx: null,
+});
 
 export default fetchImages;

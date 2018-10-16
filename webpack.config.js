@@ -1,5 +1,6 @@
 module.exports = {
-  entry: './frontend/entry.jsx',
+  mode: 'development',
+  entry: ['babel-polyfill', './frontend/entry.jsx'],
   output: {
     filename: 'bundle.js',
   },
@@ -11,7 +12,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           query: {
-            presets: ['@babel/env', '@babel/react'],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
