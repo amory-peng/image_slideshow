@@ -10,7 +10,6 @@ export default class App extends React.Component {
   }
 
   addImages(imgs) {
-    console.log(imgs);
     this.setState(prevState => ({
       images: prevState.images.concat(imgs),
     }));

@@ -29,6 +29,7 @@ const fetchImagesActual = (search, { startIdx = 0, safe = false } = {}) => {
 const fetchImages = () => ({
   imgs: [
     'https://i.kym-cdn.com/entries/icons/facebook/000/021/033/Screenshot_236.jpg',
+    'https://barkpost.com/wp-content/uploads/2016/07/shiba-probs-feature-5.jpg?q=70&fit=crop&crop=entropy&w=808&h=500',
   ],
   nextIdx: null,
 });
